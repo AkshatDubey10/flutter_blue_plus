@@ -202,6 +202,7 @@ class FlutterBluePlus {
     await _channel.invokeMethod('stopScan');
     _stopScanPill.add(null);
     _isScanning.add(false);
+    _scanResults.add(<ScanResult>[]);
   }
 
   /// The list of connected peripherals can include those that are connected
