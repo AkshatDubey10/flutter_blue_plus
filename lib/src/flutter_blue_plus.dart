@@ -209,6 +209,7 @@ class FlutterBluePlus {
     _scanTimeout?.cancel();
     _isScanning.add(false);
     await _invokeMethod('stopScan');
+    _scanResultsList.add(<ScanResult>[]);
   }
 
   /// Sets the internal FlutterBlue log level
