@@ -116,6 +116,7 @@ typedef NS_ENUM(NSUInteger, LogLevel) {
     FlutterStandardTypedData *data = [call arguments];
     ProtosConnectRequest *request = [[ProtosConnectRequest alloc] initWithData:[data data] error:nil];
     NSString *remoteId = [request remoteId];
+    bool autoConnect = args[@"auto_connect"] != 0;
     @try {
       CBPeripheral *peripheral = [_scannedPeripherals objectForKey:remoteId];
       if(peripheral == nil) {
