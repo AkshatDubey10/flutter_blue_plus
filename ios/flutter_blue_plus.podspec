@@ -16,7 +16,7 @@ Flutter plugin for connecting and communicationg with Bluetooth Low Energy devic
   s.source_files = 'Classes/**/*', 'gen/**/*'
   s.public_header_files = 'Classes/**/*.h', 'gen/**/*.h'
   s.dependency 'Flutter'
-  s.platforms = { :ios => '11.0' }
+  s.platform = :ios, '9.0'
   s.framework = 'CoreBluetooth'
 
   s.subspec "Protos" do |ss|
