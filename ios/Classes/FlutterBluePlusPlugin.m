@@ -123,8 +123,15 @@ typedef NS_ENUM(NSUInteger, LogLevel) {
                                    message:@"Peripheral not found"
                                    details:nil];
       }
-      // TODO: Implement Connect options (#36)
-      [_centralManager connectPeripheral:peripheral options:nil];
+      // options
+      NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
+      if (@available(iOS 17, *)) {
+        // note: use CBConnectPeripheralOptionEnableAutoReconnect constant
+        // when iOS 17 is more widely available
+        [options setObject:@(autoConnect) forKey:@"kCBConnectOptionEnableAutoReconnect"];
+      }
+
+      [_centralManager connectPeripheral:peripheral options:options];
       result(nil);
     } @catch(FlutterError *e) {
       result(e);
